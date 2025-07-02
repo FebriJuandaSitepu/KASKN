@@ -1,0 +1,421 @@
+/* public/css/lapangan.css */
+
+/* Kontrol tabel: Tombol Tambah di kiri, Search di kanan */
+.table-controls {
+    display: flex;
+    justify-content: space-between; /* Memisahkan elemen ke kiri dan kanan */
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Agar responsif pada layar kecil */
+    gap: 15px; /* Jarak antar elemen saat wrap */
+}
+
+.table-controls .btn-add-lapangan {
+    /* Gaya untuk tombol tambah, sesuaikan jika perlu */
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: var(--success-color, #28a745); /* Contoh default green */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.table-controls .btn-add-lapangan:hover {
+    background-color: var(--success-hover-color, #218838); /* Contoh default darker green */
+}
+
+/* Search Box tetap di kanan */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Jarak antara label, input, dan tombol */
+}
+
+.search-box label {
+    margin-right: 0; /* Hapus margin-right yang sebelumnya ada di search-section */
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+.search-box input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.2s ease;
+    min-width: 150px; /* Lebar minimum */
+}
+
+.search-box input[type="text"]:focus {
+    border-color: var(--orange-color);
+}
+
+.search-box button {
+    background-color: var(--orange-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-box button:hover {
+    background-color: var(--button-hover-color, #e08e00); /* Contoh default darker orange */
+}
+
+/* --- GAYA MODAL --- */
+.modal {
+    display: none; /* Sembunyikan secara default */
+    position: fixed; /* Tetap di tempat meskipun di-scroll */
+    z-index: 1000; /* Letakkan di atas semua elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    overflow: auto; /* Aktifkan scroll jika konten terlalu besar */
+    background-color: rgba(0,0,0,0.4); /* Background gelap transparan */
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: center; /* Pusatkan secara vertikal */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Memastikan pusaran vertikal dan horizontal dengan display: flex di .modal */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Lebar modal */
+    max-width: 700px; /* Batasi lebar maksimum */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Untuk posisi tombol close */
+    animation: fadeIn 0.3s ease-out; /* Animasi muncul */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Gaya Form di dalam modal */
+.lapangan-form .form-group {
+    margin-bottom: 15px;
+}
+
+.lapangan-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+.lapangan-form input[type="text"],
+.lapangan-form input[type="number"],
+.lapangan-form textarea,
+.lapangan-form select {
+    width: calc(100% - 20px); /* Kurangi padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+}
+
+.lapangan-form textarea {
+    resize: vertical; /* Hanya izinkan resize vertikal */
+}
+
+.lapangan-form input[type="file"] {
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.fasilitas-checkboxes {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #fcfcfc;
+}
+
+.fasilitas-checkboxes input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.fasilitas-checkboxes label {
+    display: inline-block; /* Agar label fasilitas sejajar dengan checkbox */
+    font-weight: normal;
+    margin-bottom: 0; /* Hapus margin bawah default dari label */
+}
+
+
+.lapangan-form .btn-primary {
+    background-color: var(--orange-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.lapangan-form .btn-primary:hover {
+    background-color: var(--button-hover-color, #e08e00);
+}
+
+.lapangan-form .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+    margin-left: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.lapangan-form .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+
+/* --- GAYA TABEL DARI KONSUMEN.CSS YANG ANDA BERIKAN --- */
+/* :root {
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --orange-color: #FFA500; /* Contoh warna orange 
+    --button-hover-color: #CC8400; /* Contoh warna orange saat hover 
+    --text-color-dark: #333;
+    --text-color-light: #555;
+    --border-color-light: #eee;
+    --background-light: #f8f9fa;
+    --success-hover-color: #218838; /* Tambahan untuk tombol tambah 
+} 
+*/
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Agar tabel bisa di-scroll horizontal jika terlalu lebar */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 8px; /* Pastikan ini ada untuk seluruh tabel */
+    background-color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Menghilangkan spasi antar sel */
+    background-color: transparent; /* Biarkan transparan agar .table-responsive memberi background */
+    border-radius: 8px; /* Penting untuk border-radius pada tabel */
+    overflow: hidden; /* Penting untuk border-radius pada tabel */
+    table-layout: fixed; /* Membantu penjajaran kolom */
+}
+
+table thead th {
+    background-color: var(--orange-color); /* Warna oranye */
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    border-bottom: none; /* Hapus border bawah jika thead memiliki border-radius */
+    border-top: none; /* Hapus border top jika tidak diinginkan */
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Warna baris genap */
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1; /* Warna saat hover */
+}
+
+table tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    color: var(--text-color-dark);
+    font-size: 0.95em;
+    vertical-align: top; /* Agar konten sejajar di atas */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none; /* Hapus border bawah pada baris terakhir */
+}
+
+/* --- LEBAR KOLOM UNTUK LAPANGAN (Penting untuk table-layout: fixed) --- */
+.data-table th:nth-child(1), /* ID */
+.data-table td:nth-child(1) {
+    width: 5%;
+}
+.data-table th:nth-child(2), /* Nama Lapangan */
+.data-table td:nth-child(2) {
+    width: 15%;
+}
+.data-table th:nth-child(3), /* Lokasi */
+.data-table td:nth-child(3) {
+    width: 12%;
+}
+.data-table th:nth-child(4), /* Harga Lapangan */
+.data-table td:nth-child(4) {
+    width: 10%;
+}
+.data-table th:nth-child(5), /* Rating */
+.data-table td:nth-child(5) {
+    width: 7%;
+}
+.data-table th:nth-child(6), /* Deskripsi Lapangan */
+.data-table td:nth-child(6) {
+    width: 18%;
+}
+.data-table th:nth-child(7), /* Gambar Lapangan */
+.data-table td:nth-child(7) {
+    width: 10%;
+}
+.data-table th:nth-child(8), /* Fasilitas Lapangan */
+.data-table td:nth-child(8) {
+    width: 13%;
+}
+.data-table th:nth-child(9), /* Status Aktif */
+.data-table td:nth-child(9) {
+    width: 5%;
+}
+.data-table th:nth-child(10), /* Aksi */
+.data-table td:nth-child(10) {
+    width: 5%;
+}
+
+/* --- GAYA PAGINASI DARI KONSUMEN.CSS --- */
+.pagination-section {
+    display: flex;
+    justify-content: flex-end; /* Rata kanan sesuai gambar terbaru */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-section .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-section .page-item {
+    margin: 0 5px;
+}
+
+.pagination-section .page-item .page-link {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: var(--orange-color);
+    border: 1px solid var(--orange-color);
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination-section .page-item .page-link:hover {
+    background-color: var(--orange-color);
+    color: white;
+}
+
+.pagination-section .page-item.active .page-link {
+    background-color: var(--orange-color);
+    color: white;
+    border-color: var(--orange-color);
+}
+
+.pagination-section .page-item.disabled .page-link {
+    color: #ccc;
+    border-color: #eee;
+    cursor: not-allowed;
+    background-color: #f9f9f9;
+}
+
+/* --- GAYA KHUSUS LAPANGAN (Gambar & Fasilitas) --- */
+.img-thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border-color-light);
+    display: block;
+    margin: 0 auto;
+}
+
+.fasilitas-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+.fasilitas-icons p {
+    margin: 0;
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-dark);
+}
+.fasilitas-icons i {
+    margin-right: 5px;
+    color: var(--orange-color);
+    font-size: 1em;
+}
+.fasilitas-icons .img-icon-small {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.status-active {
+    color: var(--success-color);
+    font-size: 1.5em;
+    display: block;
+    text-align: center;
+}
+
+.status-inactive {
+    color: var(--danger-color);
+    font-size: 1.5em;
+    display: block;
+    text-align: center;
+}

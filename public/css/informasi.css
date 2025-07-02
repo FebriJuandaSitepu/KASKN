@@ -1,0 +1,45 @@
+/* public/css/informasi.css */
+
+/* Header Konten Halaman (misal: "Informasi", "Data Konsumen") */
+.content-header {
+    padding: 0 0 20px 0; /* Sesuaikan padding agar tidak terlalu jauh dari atas atau kiri */
+    margin-bottom: 20px; /* Jarak antara header dan kartu info */
+    border-bottom: 1px solid #eee; /* Garis bawah header, opsional */
+    width: 100%; /* Pastikan header mengisi lebar */
+}
+
+.content-header h1 {
+    margin: 0;
+    font-size: 2em; /* Ukuran font judul utama */
+    color: var(--text-color-dark);
+}
+
+.content-header p {
+    margin: 5px 0 0 0; /* Jarak antara judul dan sub-judul */
+    font-size: 1em; /* Ukuran font sub-judul */
+    color: #666;
+}
+
+/* Kartu Informasi (Kotak Oranye) */
+.info-card {
+    background-color: var(--orange-color); /* Warna oranye */
+    padding: 30px; /* Padding di dalam kotak */
+    border-radius: 8px; /* Sudut membulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan */
+    color: white; /* Warna teks putih */
+    font-size: 1.2em; /* Ukuran font teks penjelasan */
+    line-height: 1.6; /* Jarak antar baris */
+    text-align: center; /* Teks di tengah secara horizontal */
+    max-width: 800px; /* Batasi lebar kartu agar tidak terlalu lebar di layar besar */
+    width: 100%; /* Agar kartu mengambil lebar penuh yang tersedia */
+    margin: 0 auto; /* Tengahkan kartu secara horizontal jika max-width diterapkan */
+    box-sizing: border-box; /* Memastikan padding termasuk dalam width */
+}
+
+/* Responsif untuk kartu info */
+@media (max-width: 768px) {
+    .info-card {
+        padding: 20px; /* Padding lebih kecil di mobile */
+        font-size: 1em; /* Ukuran font lebih kecil di mobile */
+    }
+}

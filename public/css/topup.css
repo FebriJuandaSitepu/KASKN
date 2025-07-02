@@ -1,0 +1,253 @@
+/* public/css/topup.css */
+
+/* Kontrol tabel: Tombol Tambah di kiri, Search di kanan */
+.table-controls {
+    display: flex;
+    justify-content: space-between; /* Memisahkan elemen ke kiri dan kanan */
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Agar responsif pada layar kecil */
+    gap: 15px; /* Jarak antar elemen saat wrap */
+}
+
+/* Search Box tetap di kanan */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Jarak antara label, input, dan tombol */
+    margin-left: auto; /* Ini dorong search box ke kanan */
+}
+
+.search-box label {
+    margin-right: 0; /* Hapus margin-right yang sebelumnya ada di search-section */
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+.search-box input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.2s ease;
+    min-width: 150px; /* Lebar minimum */
+}
+
+.search-box input[type="text"]:focus {
+    border-color: var(--orange-color);
+}
+
+.search-box button {
+    background-color: var(--orange-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-box button:hover {
+    background-color: var(--button-hover-color, #e08e00); /* Contoh default darker orange */
+}
+
+
+/* --- GAYA TABEL DARI KONSUMEN.CSS YANG ANDA BERIKAN --- */
+/* :root {
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --orange-color: #FFA500; /* Contoh warna orange 
+    --button-hover-color: #CC8400; /* Contoh warna orange saat hover 
+    --text-color-dark: #333;
+    --text-color-light: #555;
+    --border-color-light: #eee;
+    --background-light: #f8f9fa;
+    --success-hover-color: #218838; /* Tambahan untuk tombol tambah 
+} 
+*/
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Agar tabel bisa di-scroll horizontal jika terlalu lebar */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 8px; /* Pastikan ini ada untuk seluruh tabel */
+    background-color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Menghilangkan spasi antar sel */
+    background-color: transparent; /* Biarkan transparan agar .table-responsive memberi background */
+    border-radius: 8px; /* Penting untuk border-radius pada tabel */
+    overflow: hidden; /* Penting untuk border-radius pada tabel */
+    table-layout: fixed; /* Membantu penjajaran kolom */
+}
+
+table thead th {
+    background-color: var(--orange-color); /* Warna oranye */
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    border-bottom: none; /* Hapus border bawah jika thead memiliki border-radius */
+    border-top: none; /* Hapus border top jika tidak diinginkan */
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Warna baris genap */
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1; /* Warna saat hover */
+}
+
+table tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    color: var(--text-color-dark);
+    font-size: 0.95em;
+    vertical-align: top; /* Agar konten sejajar di atas */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none; /* Hapus border bawah pada baris terakhir */
+}
+
+/* --- LEBAR KOLOM UNTUK TOP UP (Penting untuk table-layout: fixed) --- */
+.data-table th:nth-child(1), /* ID */
+.data-table td:nth-child(1) {
+    width: 10%;
+}
+.data-table th:nth-child(2), /* No. Identitas */
+.data-table td:nth-child(2) {
+    width: 20%;
+}
+.data-table th:nth-child(3), /* Nama Konsumen */
+.data-table td:nth-child(3) {
+    width: 20%;
+}
+.data-table th:nth-child(4), /* No. Telepon */
+.data-table td:nth-child(4) {
+    width: 20%;
+}
+.data-table th:nth-child(5), /* Nominal */
+.data-table td:nth-child(5) {
+    width: 20%;
+}
+.data-table th:nth-child(6), /* Status */
+.data-table td:nth-child(6) {
+    width: 15%;
+}
+
+.data-table th:nth-child(7), /* Aksi */
+.data-table td:nth-child(7) {
+    width: 20%;
+}
+
+/* --- GAYA PAGINASI DARI KONSUMEN.CSS --- */
+.pagination-section {
+    display: flex;
+    justify-content: flex-end; /* Rata kanan sesuai gambar terbaru */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-section .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-section .page-item {
+    margin: 0 5px;
+}
+
+.pagination-section .page-item .page-link {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: var(--orange-color);
+    border: 1px solid var(--orange-color);
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination-section .page-item .page-link:hover {
+    background-color: var(--orange-color);
+    color: white;
+}
+
+.pagination-section .page-item.active .page-link {
+    background-color: var(--orange-color);
+    color: white;
+    border-color: var(--orange-color);
+}
+
+.pagination-section .page-item.disabled .page-link {
+    color: #ccc;
+    border-color: #eee;
+    cursor: not-allowed;
+    background-color: #f9f9f9;
+}
+
+/* konfirmasi top up */
+/* Gaya untuk Status Badge */
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 15px; /* Bikin lebih oval */
+    color: white;
+    font-weight: bold;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    min-width: 80px; /* Lebar minimum biar rapi */
+}
+
+/* Status Pending (Biru) */
+.status-badge.status-pending {
+    background-color: #007bff; /* Biru */
+}
+
+/* Status Berhasil (Hijau) */
+.status-badge.status-berhasil {
+    background-color: #28a745; /* Hijau */
+}
+
+/* Status Gagal/Ditolak (Merah - opsional) */
+.status-badge.status-gagal {
+    background-color: #dc3545; /* Merah */
+}
+
+/* Gaya untuk Tombol Aksi (Konfirmasi) */
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* Jarak antara ikon dan teks */
+}
+
+.btn-confirm {
+    background-color: #28a745; /* Warna hijau untuk konfirmasi */
+}
+
+.btn-confirm:hover {
+    background-color: #218838; /* Warna hijau lebih gelap saat hover */
+}
